@@ -1,356 +1,294 @@
-/* ========================================
-   PHÚC NGUYÊN OFFICIAL PROJECT
-   JAVASCRIPT
-======================================== */
+/* =====================================================
+   OTTER'S CORNER × UPRIZE PN
+   MAIN JAVASCRIPT
+===================================================== */
 
 
-/* ========================================
-   DỮ LIỆU PROJECT
-======================================== */
+/* =====================================================
+   STAR FIELD
+===================================================== */
 
-/*
-   SAU NÀY BẠN CHỈ CẦN SỬA PHẦN NÀY.
+const starField =
+    document.getElementById("starField");
 
-   Không cần sửa HTML.
-*/
 
+function createStars() {
 
-const projects = [
+    const totalStars = 220;
 
-    {
-        id: 1,
+    for (
+        let i = 0;
+        i < totalStars;
+        i++
+    ) {
 
-        name: "PROJECT 01",
+        const star =
+            document.createElement("span");
 
-        description:
-            "Thông tin project sẽ được cập nhật.",
+        star.classList.add("star");
 
-        income: 5000000,
 
-        expenses: [
+        if (Math.random() > 0.86) {
+            star.classList.add("large");
+        }
 
-            {
-                date: "01/08/2026",
 
-                type: "Design",
+        if (Math.random() > 0.92) {
+            star.classList.add("cross");
+        }
 
-                quantity: 1,
 
-                price: 300000,
+        star.style.left =
+            Math.random() * 100 + "%";
 
-                deposit: 0,
 
-                proof: "Minh chứng"
-            },
+        star.style.top =
+            Math.random() * 100 + "%";
 
 
-            {
-                date: "02/08/2026",
-
-                type: "In ấn",
-
-                quantity: 100,
-
-                price: 5000,
-
-                deposit: 250000,
-
-                proof: "Minh chứng"
-            },
-
-
-            {
-                date: "03/08/2026",
-
-                type: "Đồ ăn, nước uống",
-
-                quantity: 10,
-
-                price: 50000,
-
-                deposit: 0,
-
-                proof: "Minh chứng"
-            }
-
-        ]
-    },
-
-
-    {
-        id: 2,
-
-        name: "PROJECT 02",
-
-        description:
-            "Project mới sẽ được cập nhật.",
-
-        income: 3000000,
-
-        expenses: [
-
-            {
-                date: "10/08/2026",
-
-                type: "Thi công",
-
-                quantity: 1,
-
-                price: 500000,
-
-                deposit: 200000,
-
-                proof: "Minh chứng"
-            }
-
-        ]
-    },
-
-
-    {
-        id: 3,
-
-        name: "PROJECT 03",
-
-        description:
-            "Project mới sẽ được cập nhật.",
-
-        income: 0,
-
-        expenses: []
-
-    }
-
-];
-
-
-/* ========================================
-   LẤY ELEMENT
-======================================== */
-
-const enterButton =
-    document.getElementById(
-        "enterButton"
-    );
-
-
-const opening =
-    document.getElementById(
-        "opening"
-    );
-
-
-const mainPage =
-    document.getElementById(
-        "mainPage"
-    );
-
-
-const menuButton =
-    document.getElementById(
-        "menuButton"
-    );
-
-
-const menuOverlay =
-    document.getElementById(
-        "menuOverlay"
-    );
-
-
-const menuClose =
-    document.getElementById(
-        "menuClose"
-    );
-
-
-const menuItems =
-    document.querySelectorAll(
-        ".menu-item"
-    );
-
-
-const contentSections =
-    document.querySelectorAll(
-        ".content-section"
-    );
-
-
-const backButtons =
-    document.querySelectorAll(
-        ".back-button"
-    );
-
-
-const financeProjectList =
-    document.getElementById(
-        "financeProjectList"
-    );
-
-
-const financeDetail =
-    document.getElementById(
-        "financeDetail"
-    );
-
-
-const financeProjectContent =
-    document.getElementById(
-        "financeProjectContent"
-    );
-
-
-const financeBack =
-    document.getElementById(
-        "financeBack"
-    );
-
-
-const projectGrid =
-    document.getElementById(
-        "projectGrid"
-    );
-
-
-/* ========================================
-   ENTER WEBSITE
-======================================== */
-
-enterButton.addEventListener(
-    "click",
-    function () {
-
-        opening.style.opacity = "0";
-
-
-        setTimeout(
-            function () {
-
-                opening.style.display =
-                    "none";
-
-
-                mainPage.style.display =
-                    "flex";
-
-
-                mainPage.style.opacity =
-                    "1";
-
-            },
-            800
+        star.style.setProperty(
+            "--duration",
+            (1.5 + Math.random() * 4) + "s"
         );
 
-    }
-);
 
-
-/* ========================================
-   MENU
-======================================== */
-
-menuButton.addEventListener(
-    "click",
-    function () {
-
-        menuOverlay.style.display =
-            "flex";
-
-
-        setTimeout(
-            function () {
-
-                menuOverlay.style.opacity =
-                    "1";
-
-            },
-            30
+        star.style.setProperty(
+            "--delay",
+            (Math.random() * 5) + "s"
         );
 
+
+        starField.appendChild(star);
+
     }
-);
-
-
-menuClose.addEventListener(
-    "click",
-    closeMenu
-);
-
-
-function closeMenu() {
-
-    menuOverlay.style.opacity =
-        "0";
-
-
-    setTimeout(
-        function () {
-
-            menuOverlay.style.display =
-                "none";
-
-        },
-        400
-    );
 
 }
 
 
-/* ========================================
-   MENU ITEMS
-======================================== */
-
-menuItems.forEach(
-    function (item) {
-
-        item.addEventListener(
-            "click",
-            function () {
-
-                const sectionID =
-                    item.getAttribute(
-                        "data-section"
-                    );
+createStars();
 
 
-                const selectedSection =
-                    document.getElementById(
-                        sectionID
-                    );
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const intro =
+    document.getElementById("intro");
 
 
-                closeMenu();
+const website =
+    document.getElementById("website");
 
 
-                setTimeout(
-                    function () {
-
-                        contentSections.forEach(
-                            function (section) {
-
-                                section.style.display =
-                                    "none";
-
-                            }
-                        );
+const home =
+    document.getElementById("home");
 
 
-                        selectedSection.style.display =
-                            "flex";
+const enterButton =
+    document.getElementById("enterButton");
 
 
-                        if (
-                            sectionID ===
-                            "finance"
-                        ) {
+const introButton =
+    document.getElementById("introButton");
 
-                            showFinanceList();
 
-                        }
+const music =
+    document.getElementById("bgMusic");
 
-                    },
-                    450
+
+const musicButton =
+    document.getElementById("musicButton");
+
+
+const pages =
+    document.querySelectorAll(".page-section");
+
+
+const menuCards =
+    document.querySelectorAll(".menu-card");
+
+
+const backHomeButtons =
+    document.querySelectorAll("[data-home]");
+
+
+/* =====================================================
+   MUSIC
+===================================================== */
+
+let musicStarted = false;
+
+
+async function startMusic() {
+
+    if (musicStarted) {
+        return;
+    }
+
+
+    try {
+
+        await music.play();
+
+        musicStarted = true;
+
+        musicButton.classList.add(
+            "playing"
+        );
+
+        musicButton.textContent =
+            "♫";
+
+    } catch (error) {
+
+        /*
+            Trình duyệt có thể chặn autoplay.
+
+            Vì vậy website vẫn giữ nhạc,
+            và nút music sẽ cho phép người dùng
+            bật bằng tay.
+        */
+
+        musicStarted = false;
+
+    }
+
+}
+
+
+/* =====================================================
+   ENTER WEBSITE
+===================================================== */
+
+enterButton.addEventListener(
+    "click",
+    async () => {
+
+        intro.classList.add("hidden");
+
+        website.classList.remove("hidden");
+
+        home.classList.remove("hidden");
+
+
+        await startMusic();
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
+
+musicButton.addEventListener(
+    "click",
+    async () => {
+
+        if (music.paused) {
+
+            try {
+
+                await music.play();
+
+                musicStarted = true;
+
+                musicButton.classList.add(
+                    "playing"
                 );
+
+                musicButton.textContent =
+                    "♫";
+
+            } catch (error) {
+
+                console.log(
+                    "Không thể phát nhạc:",
+                    error
+                );
+
+            }
+
+        } else {
+
+            music.pause();
+
+            musicButton.classList.remove(
+                "playing"
+            );
+
+            musicButton.textContent =
+                "♪";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   OPEN PAGE
+===================================================== */
+
+function openPage(pageId) {
+
+    home.classList.add("hidden");
+
+
+    pages.forEach(
+        page => {
+
+            page.classList.add(
+                "hidden"
+            );
+
+        }
+    );
+
+
+    const target =
+        document.getElementById(pageId);
+
+
+    if (!target) {
+        return;
+    }
+
+
+    target.classList.remove(
+        "hidden"
+    );
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   MENU CARDS
+===================================================== */
+
+menuCards.forEach(
+    card => {
+
+        card.addEventListener(
+            "click",
+            () => {
+
+                const page =
+                    card.dataset.page;
+
+                openPage(page);
 
             }
         );
@@ -359,37 +297,37 @@ menuItems.forEach(
 );
 
 
-/* ========================================
-   BACK
-======================================== */
+/* =====================================================
+   BACK HOME
+===================================================== */
 
-backButtons.forEach(
-    function (button) {
+backHomeButtons.forEach(
+    button => {
 
         button.addEventListener(
             "click",
-            function () {
+            () => {
 
-                contentSections.forEach(
-                    function (section) {
+                pages.forEach(
+                    page => {
 
-                        section.style.display =
-                            "none";
+                        page.classList.add(
+                            "hidden"
+                        );
 
                     }
                 );
 
 
-                mainPage.style.display =
-                    "flex";
+                home.classList.remove(
+                    "hidden"
+                );
 
 
-                financeDetail.style.display =
-                    "none";
-
-
-                financeProjectList.style.display =
-                    "grid";
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
 
             }
         );
@@ -398,272 +336,288 @@ backButtons.forEach(
 );
 
 
-/* ========================================
-   CLICK NGOÀI MENU
-======================================== */
+/* =====================================================
+   BACK TO INTRO
+===================================================== */
 
-menuOverlay.addEventListener(
+introButton.addEventListener(
     "click",
-    function (event) {
+    () => {
 
-        if (
-            event.target ===
-            menuOverlay
-        ) {
+        pages.forEach(
+            page => {
 
-            closeMenu();
+                page.classList.add(
+                    "hidden"
+                );
 
-        }
+            }
+        );
+
+
+        home.classList.remove(
+            "hidden"
+        );
+
+
+        website.classList.add(
+            "hidden"
+        );
+
+
+        intro.classList.remove(
+            "hidden"
+        );
+
+
+        /*
+            KHÔNG pause music.
+
+            Nhạc vẫn chạy xuyên suốt.
+        */
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
 
     }
 );
 
 
-/* ========================================
-   ESC
-======================================== */
+/* =====================================================
+   PROJECT DATA
+===================================================== */
 
-document.addEventListener(
-    "keydown",
-    function (event) {
+const projectData = {
 
-        if (
-            event.key ===
-            "Escape"
-        ) {
+    pj1: {
 
-            closeMenu();
+        code: "PJ1",
 
-        }
+        date: "18/01/2026",
+
+        title:
+            "CHEER TO GRADUATION & ROAD TO DEBUT",
+
+        images: [
+            "assets/PJ1.png"
+        ],
+
+        content: `
+
+            <p>
+                💕 Project nhỏ xinh đầu tiên của
+                Otter's Corner tới Phúc Nguyên yêu dấu 💕
+            </p>
+
+
+            <p>
+                📨 Dear Phúc Nguyên:
+            </p>
+
+
+            <p>
+                “Khi cánh cửa này khép lại cũng là lúc
+                một cánh cửa mới mở ra, chặng đường tại
+                SIA vừa qua Nguyên đã trải qua bằng tất cả
+                nhiệt huyết và chân thành, giờ là lúc bước
+                ra thế giới rộng lớn kia để tiếp tục hành
+                trình theo đuổi đam mê.”
+            </p>
+
+
+            <p class="detail-highlight">
+                ✨ SHOW THE WORLD WHO YOU ARE ✨
+            </p>
+
+
+            <p>
+                🦦 <strong>By:</strong> Otter's Corner
+            </p>
+
+
+            <p>
+                💫 <strong>Date:</strong> 18/01/2026
+            </p>
+
+
+            <p>
+                📍 <strong>Location:</strong> Vietnam
+            </p>
+
+
+            <p>
+                Otter's Corner xin được gửi lời cảm ơn tới
+                @le.tresor_pn và @nayngieee_ khi đã cho phép
+                team được sử dụng hình ảnh cho chiếc ads
+                xinh iu này.
+            </p>
+
+
+            <p>
+                Cảm ơn designer iu quý của team
+                @dazii2611 đã vất vả cho deadline gấp rút
+                chúc mừng Phúc Nguyên tốt nghiệp hành trình này.
+            </p>
+
+
+            <p>
+                Các tình iu có bắt gặp chiếc ads nhỏ xinh này
+                thì nhớ tag Otter's Corner và gửi lời chúc
+                tới Phúc Nguyên nhaaaa.
+            </p>
+
+        `
+
+    },
+
+
+    pj2: {
+
+        code: "PJ2",
+
+        date: "2026",
+
+        title:
+            "PHƯỚN HER CONCERT FOR UPRIZE PN",
+
+        images: [
+            "assets/PJ2.1.png",
+            "assets/PJ2.2.png"
+        ],
+
+        content: `
+
+            <p>
+                Mở đầu cho hành trình
+                <strong>Phúc Khởi Hưng Nguyên</strong>
+                với chặng “Phúc Khai”, Otter's Corner gửi đến
+                HER Concert cụm 10 phướn như một dấu mốc
+                khởi đầu, thay cho lời chúc tốt đẹp và lời
+                hứa đồng hành dài lâu 🫂
+            </p>
+
+
+            <p>
+                Mỗi phướn đều mang theo niềm tin,
+                sự tự hào và ước nguyện — mong Phúc Nguyên
+                luôn tự tin, mạnh mẽ trên mọi chặng đường,
+                không ngừng bứt phá và ngày càng vươn xa 🪽
+            </p>
+
+        `
+
+    },
+
+
+    pj3: {
+
+        code: "PJ3",
+
+        date: "2026",
+
+        title:
+            "PHOTO FRAME x TEDxTPC2026",
+
+        images: [
+            "assets/PJ3.1.png",
+            "assets/PJ3.2.png"
+        ],
+
+        content: `
+
+            <p>
+                🎹 Mở đầu chặng Khởi, Otter's Corner
+                mang đến project đầu tiên: frame check-in
+                tại sự kiện TEDxTPC2026.
+            </p>
+
+
+            <p>
+                🎹 Lấy cảm hứng từ chủ đề
+                <strong>Maestro</strong>, chúng mình tái hiện
+                một “nhà hát” nơi vị nhạc trưởng tài ba
+                UPRIZE PN dẫn dắt những giai điệu đầy cảm hứng.
+            </p>
+
+
+            <p>
+                🎹 Đừng quên ghé qua frame check-in và lưu lại
+                những khoảnh khắc thật xinh nhéee.
+            </p>
+
+        `
+
+    }
+
+};
+
+
+/* =====================================================
+   PROJECT ELEMENTS
+===================================================== */
+
+const projectCards =
+    document.querySelectorAll(
+        ".project-card[data-project]"
+    );
+
+
+const projectList =
+    document.getElementById(
+        "projectList"
+    );
+
+
+const projectDetail =
+    document.getElementById(
+        "projectDetail"
+    );
+
+
+const projectDetailContent =
+    document.getElementById(
+        "projectDetailContent"
+    );
+
+
+const projectBack =
+    document.getElementById(
+        "projectBack"
+    );
+
+
+/* =====================================================
+   OPEN PROJECT
+===================================================== */
+
+projectCards.forEach(
+    card => {
+
+        card.addEventListener(
+            "click",
+            () => {
+
+                const projectId =
+                    card.dataset.project;
+
+
+                showProject(
+                    projectId
+                );
+
+            }
+        );
 
     }
 );
 
 
-/* ========================================
-   TẠO PROJECTS
-======================================== */
-
-function renderProjects() {
-
-    projectGrid.innerHTML = "";
-
-
-    projects.forEach(
-        function (project) {
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "project-card";
-
-
-            card.innerHTML = `
-
-                <div class="project-image">
-                    ✦
-                </div>
-
-                <h3>
-                    ${project.name}
-                </h3>
-
-                <p>
-                    ${project.description}
-                </p>
-
-            `;
-
-
-            projectGrid.appendChild(
-                card
-            );
-
-        }
-    );
-
-}
-
-
-renderProjects();
-
-
-/* ========================================
-   HIỆN DANH SÁCH THU CHI
-======================================== */
-
-function showFinanceList() {
-
-    financeProjectList.style.display =
-        "grid";
-
-
-    financeDetail.style.display =
-        "none";
-
-
-    financeProjectList.innerHTML =
-        "";
-
-
-    projects.forEach(
-        function (project, index) {
-
-            const totalExpense =
-                calculateExpenses(
-                    project
-                );
-
-
-            const remaining =
-                project.income -
-                totalExpense;
-
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "finance-project-card";
-
-
-            card.innerHTML = `
-
-                <div class="finance-project-number">
-                    PROJECT ${String(
-                        index + 1
-                    ).padStart(2, "0")}
-                </div>
-
-
-                <h3>
-                    ${project.name}
-                </h3>
-
-
-                <p>
-                    Tổng thu:
-                    ${formatMoney(
-                        project.income
-                    )}
-                </p>
-
-
-                <p>
-                    Tổng chi:
-                    ${formatMoney(
-                        totalExpense
-                    )}
-                </p>
-
-
-                <p>
-                    Còn lại:
-                    ${formatMoney(
-                        remaining
-                    )}
-                </p>
-
-            `;
-
-
-            card.addEventListener(
-                "click",
-                function () {
-
-                    showFinanceDetail(
-                        project.id
-                    );
-
-                }
-            );
-
-
-            financeProjectList.appendChild(
-                card
-            );
-
-        }
-    );
-
-}
-
-
-/* ========================================
-   TÍNH TỔNG CHI
-======================================== */
-
-function calculateExpenses(
-    project
-) {
-
-    return project.expenses.reduce(
-        function (
-            total,
-            item
-        ) {
-
-            return total +
-                (
-                    item.quantity *
-                    item.price
-                );
-
-        },
-        0
-    );
-
-}
-
-
-/* ========================================
-   TÍNH TỔNG CỌC
-======================================== */
-
-function calculateDeposit(
-    project
-) {
-
-    return project.expenses.reduce(
-        function (
-            total,
-            item
-        ) {
-
-            return total +
-                item.deposit;
-
-        },
-        0
-    );
-
-}
-
-
-/* ========================================
-   HIỆN CHI TIẾT
-======================================== */
-
-function showFinanceDetail(
-    projectID
-) {
+function showProject(projectId) {
 
     const project =
-        projects.find(
-            function (item) {
-
-                return item.id ===
-                    projectID;
-
-            }
-        );
+        projectData[projectId];
 
 
     if (!project) {
@@ -671,46 +625,308 @@ function showFinanceDetail(
     }
 
 
-    const totalExpense =
-        calculateExpenses(
-            project
+    const gallery =
+        project.images
+            .map(
+                image => `
+
+                    <img
+                        src="${image}"
+                        alt="${project.title}"
+                        loading="lazy"
+                    >
+
+                `
+            )
+            .join("");
+
+
+    projectDetailContent.innerHTML = `
+
+        <div class="detail-header">
+
+            <span class="detail-code">
+                ${project.code}
+            </span>
+
+
+            <h2>
+                ${project.title}
+            </h2>
+
+
+            <span class="detail-date">
+                ${project.date}
+            </span>
+
+        </div>
+
+
+        <div class="detail-text">
+
+            ${project.content}
+
+        </div>
+
+
+        <div class="detail-gallery">
+
+            ${gallery}
+
+        </div>
+
+    `;
+
+
+    projectList.classList.add(
+        "hidden"
+    );
+
+
+    projectDetail.classList.remove(
+        "hidden"
+    );
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   CLOSE PROJECT
+===================================================== */
+
+projectBack.addEventListener(
+    "click",
+    () => {
+
+        projectDetail.classList.add(
+            "hidden"
         );
 
 
-    const totalDeposit =
-        calculateDeposit(
-            project
+        projectList.classList.remove(
+            "hidden"
         );
 
 
-    const remaining =
-        project.income -
-        totalExpense;
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
 
 
-    financeProjectList.style.display =
-        "none";
+/* =====================================================
+   FINANCE DATA
+===================================================== */
 
 
-    financeDetail.style.display =
-        "block";
+/*
+    PJ1 / PJ2 / PJ3 hiện tại đều dùng
+    quỹ nội bộ nên:
+
+    Tổng thu  = 0đ
+    Tổng chi  = 0đ
+    Còn lại   = 0đ
+
+    Khi có phát sinh chỉ cần thêm dữ liệu
+    vào expenses.
+*/
 
 
-    let rows = "";
+const financeData = {
+
+    pj1: {
+
+        income: 0,
+
+        expenses: []
+
+    },
+
+
+    pj2: {
+
+        income: 0,
+
+        expenses: []
+
+    },
+
+
+    pj3: {
+
+        income: 0,
+
+        expenses: []
+
+    }
+
+};
+
+
+/* =====================================================
+   FINANCE
+===================================================== */
+
+const projectSelect =
+    document.getElementById(
+        "projectSelect"
+    );
+
+
+const financeResult =
+    document.getElementById(
+        "financeResult"
+    );
+
+
+const totalIncome =
+    document.getElementById(
+        "totalIncome"
+    );
+
+
+const totalExpense =
+    document.getElementById(
+        "totalExpense"
+    );
+
+
+const totalRemain =
+    document.getElementById(
+        "totalRemain"
+    );
+
+
+const financeTable =
+    document.getElementById(
+        "financeTable"
+    );
+
+
+projectSelect.addEventListener(
+    "change",
+    () => {
+
+        const projectId =
+            projectSelect.value;
+
+
+        if (!projectId) {
+
+            financeResult.classList.add(
+                "hidden"
+            );
+
+            return;
+
+        }
+
+
+        showFinance(
+            projectId
+        );
+
+    }
+);
+
+
+/* =====================================================
+   SHOW FINANCE
+===================================================== */
+
+function showFinance(projectId) {
+
+    const data =
+        financeData[projectId];
+
+
+    if (!data) {
+        return;
+    }
+
+
+    const income =
+        data.income;
+
+
+    const expense =
+        data.expenses.reduce(
+            (sum, item) => {
+
+                return sum + item.total;
+
+            },
+            0
+        );
+
+
+    const remain =
+        income - expense;
+
+
+    totalIncome.textContent =
+        formatMoney(income);
+
+
+    totalExpense.textContent =
+        formatMoney(expense);
+
+
+    totalRemain.textContent =
+        formatMoney(remain);
 
 
     if (
-        project.expenses.length ===
-        0
+        data.expenses.length === 0
     ) {
 
-        rows = `
+        financeTable.innerHTML = `
 
             <tr>
 
                 <td colspan="7">
 
-                    Chưa có khoản chi nào.
+                    <div
+                        style="
+                            text-align:center;
+                            padding:35px 20px;
+                            opacity:.6;
+                        "
+                    >
+
+                        Project sử dụng
+                        <strong>quỹ nội bộ</strong>.
+
+                        <br><br>
+
+                        Hiện tại chưa phát sinh
+                        khoản thu — chi.
+
+                        <br><br>
+
+                        Tổng thu:
+                        <strong>0đ</strong>
+
+                        ·
+
+                        Tổng chi:
+                        <strong>0đ</strong>
+
+                        ·
+
+                        Còn lại:
+                        <strong>0đ</strong>
+
+                    </div>
 
                 </td>
 
@@ -718,242 +934,95 @@ function showFinanceDetail(
 
         `;
 
-    }
+    } else {
 
+        financeTable.innerHTML =
+            data.expenses
+                .map(
+                    item => `
 
-    else {
+                        <tr>
 
-        project.expenses.forEach(
-            function (item) {
+                            <td>
+                                ${item.date}
+                            </td>
 
-                const total =
-                    item.quantity *
-                    item.price;
-
-
-                rows += `
-
-                    <tr>
-
-                        <td>
-                            ${item.date}
-                        </td>
-
-
-                        <td>
-
-                            <span
-                                class="payment-type"
-                            >
+                            <td>
                                 ${item.type}
-                            </span>
+                            </td>
 
-                        </td>
+                            <td>
+                                ${item.quantity}
+                            </td>
 
+                            <td>
+                                ${formatMoney(
+                                    item.unitPrice
+                                )}
+                            </td>
 
-                        <td>
-                            ${item.quantity}
-                        </td>
+                            <td>
+                                ${formatMoney(
+                                    item.total
+                                )}
+                            </td>
 
+                            <td>
+                                ${formatMoney(
+                                    item.deposit
+                                )}
+                            </td>
 
-                        <td>
-                            ${formatMoney(
-                                item.price
-                            )}
-                        </td>
+                            <td>
 
+                                ${
+                                    item.proof
 
-                        <td>
-                            ${formatMoney(
-                                total
-                            )}
-                        </td>
+                                    ?
 
+                                    `
+                                    <a
+                                        href="${item.proof}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Drive ↗
+                                    </a>
+                                    `
 
-                        <td>
-                            ${formatMoney(
-                                item.deposit
-                            )}
-                        </td>
+                                    :
 
+                                    "—"
+                                }
 
-                        <td>
-                            ${item.proof}
-                        </td>
+                            </td>
 
-                    </tr>
+                        </tr>
 
-                `;
-
-            }
-        );
+                    `
+                )
+                .join("");
 
     }
 
 
-    financeProjectContent.innerHTML = `
-
-        <h3 class="finance-title">
-
-            ${project.name}
-
-        </h3>
-
-
-        <div class="finance-summary">
-
-
-            <div>
-
-                <span>
-                    TỔNG THU
-                </span>
-
-                <strong>
-                    ${formatMoney(
-                        project.income
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div>
-
-                <span>
-                    TỔNG CHI
-                </span>
-
-                <strong>
-                    ${formatMoney(
-                        totalExpense
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div>
-
-                <span>
-                    CÒN LẠI
-                </span>
-
-                <strong>
-                    ${formatMoney(
-                        remaining
-                    )}
-                </strong>
-
-            </div>
-
-        </div>
-
-
-        <p
-            style="
-                margin-bottom:20px;
-                font-size:11px;
-                opacity:.6;
-            "
-        >
-
-            Tổng tiền cọc:
-            ${formatMoney(
-                totalDeposit
-            )}
-
-        </p>
-
-
-        <div
-            class="finance-table-wrapper"
-        >
-
-            <table
-                class="finance-table"
-            >
-
-                <thead>
-
-                    <tr>
-
-                        <th>
-                            NGÀY
-                        </th>
-
-                        <th>
-                            LOẠI THANH TOÁN
-                        </th>
-
-                        <th>
-                            SỐ LƯỢNG
-                        </th>
-
-                        <th>
-                            ĐƠN GIÁ
-                        </th>
-
-                        <th>
-                            THÀNH TIỀN
-                        </th>
-
-                        <th>
-                            CỌC
-                        </th>
-
-                        <th>
-                            MINH CHỨNG
-                        </th>
-
-                    </tr>
-
-                </thead>
-
-
-                <tbody>
-
-                    ${rows}
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    `;
+    financeResult.classList.remove(
+        "hidden"
+    );
 
 }
 
 
-/* ========================================
-   BACK DANH SÁCH PROJECT
-======================================== */
-
-financeBack.addEventListener(
-    "click",
-    function () {
-
-        showFinanceList();
-
-    }
-);
-
-
-/* ========================================
-   FORMAT TIỀN
-======================================== */
+/* =====================================================
+   MONEY FORMAT
+===================================================== */
 
 function formatMoney(
-    number
+    amount
 ) {
 
     return new Intl.NumberFormat(
-        "vi-VN",
-        {
-            style: "currency",
-            currency: "VND"
-        }
-    ).format(number);
+        "vi-VN"
+    ).format(amount) + "đ";
 
 }
