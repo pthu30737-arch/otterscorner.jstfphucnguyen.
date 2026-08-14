@@ -1,0 +1,103 @@
+/* ==============================
+   MÀU CHUNG
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --baby-blue: #c9ebff;
+    --dark-blue: #18324a;
+    --white: #ffffff;
+}
+
+body {
+    min-height: 100vh;
+
+    background: var(--baby-blue);
+
+    color: var(--dark-blue);
+
+    font-family: Arial, sans-serif;
+
+    overflow: hidden;
+}
+
+
+/* ==============================
+   NGÔI SAO
+============================== */
+
+body::before {
+    content:
+        "✦     ✧       ✦        ·       ✧     ✦       ·     ✦";
+
+    position: fixed;
+
+    inset: 0;
+
+    padding: 40px;
+
+    font-size: 18px;
+
+    line-height: 6;
+
+    letter-spacing: 25px;
+
+    color: rgba(255,255,255,0.9);
+
+    text-shadow:
+        0 0 8px white,
+        0 0 15px white;
+
+    pointer-events: none;
+
+    animation: sparkle 3s infinite alternate;
+}
+
+
+/* ==============================
+   HIỆU ỨNG NHẤP NHÁY
+============================== */
+
+@keyframes sparkle {
+
+    0% {
+        opacity: 0.25;
+        transform: scale(0.98);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+        transform: scale(1.02);
+    }
+
+}
+
+
+/* ==============================
+   TIÊU ĐỀ
+============================== */
+
+h1 {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    padding-top: 45vh;
+
+    font-size: 50px;
+
+    letter-spacing: 8px;
+
+}
