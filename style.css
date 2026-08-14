@@ -23,19 +23,84 @@ body {
 
 
 /* ========================================
-   MÀN HÌNH MỞ ĐẦU
+   SAO LẤP LÁNH TOÀN WEBSITE
+======================================== */
+
+body::before {
+    content: "✦    ✧       ·      ✦        ·
+    
+       ✧       ✦       ·       ✧
+       
+    ·       ✦       ✧        ·       ✦
+    
+       ✦       ·       ✧       ·
+       
+    ✧       ·       ✦       ✧       ·";
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999;
+
+    pointer-events: none;
+
+    white-space: pre;
+
+    color: rgba(255,255,255,0.85);
+
+    font-size: 18px;
+
+    line-height: 5;
+
+    letter-spacing: 15px;
+
+    text-shadow:
+        0 0 5px white,
+        0 0 12px white,
+        0 0 20px rgba(255,255,255,0.8);
+
+    animation: websiteStars 3s infinite alternate;
+
+    opacity: 0.45;
+}
+
+
+@keyframes websiteStars {
+
+    0% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+
+}
+
+
+/* ========================================
+   OPENING
 ======================================== */
 
 .opening {
     position: fixed;
+
     inset: 0;
 
     width: 100%;
     height: 100vh;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     justify-content: center;
 
     background: #c9eaff;
@@ -51,11 +116,12 @@ body {
 
 
 /* ========================================
-   SAO LẤP LÁNH
+   SAO OPENING
 ======================================== */
 
 .stars {
     position: absolute;
+
     inset: 0;
 
     pointer-events: none;
@@ -63,8 +129,6 @@ body {
     z-index: 1;
 }
 
-
-/* nhiều sao */
 
 .stars::before {
     content:
@@ -81,11 +145,12 @@ body {
          ✦          ·       ✧       ·       ✦";
 
     position: absolute;
+
     inset: 20px;
 
     white-space: pre;
 
-    color: #ffffff;
+    color: white;
 
     font-size: 22px;
 
@@ -94,15 +159,13 @@ body {
     letter-spacing: 18px;
 
     text-shadow:
-        0 0 5px #ffffff,
-        0 0 12px #ffffff,
+        0 0 5px white,
+        0 0 12px white,
         0 0 22px rgba(255,255,255,0.9);
 
     animation: starsBlink 2.5s infinite alternate;
 }
 
-
-/* sao lớn */
 
 .stars::after {
     content: "✦";
@@ -110,16 +173,17 @@ body {
     position: absolute;
 
     top: 18%;
+
     left: 18%;
 
-    color: #ffffff;
+    color: white;
 
     font-size: 32px;
 
     text-shadow:
-        0 0 5px #ffffff,
-        0 0 15px #ffffff,
-        0 0 30px #ffffff;
+        0 0 5px white,
+        0 0 15px white,
+        0 0 30px white;
 
     animation: starTwinkle 1.4s infinite alternate;
 }
@@ -163,7 +227,7 @@ body {
 
 
 /* ========================================
-   ẢNH 1.PNG
+   MASCOT
 ======================================== */
 
 .mascot {
@@ -177,13 +241,12 @@ body {
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     cursor: pointer;
 }
 
-
-/* ánh sáng phía sau ảnh */
 
 .mascot::before {
     content: "";
@@ -202,8 +265,6 @@ body {
     z-index: -1;
 }
 
-
-/* ảnh 1.png */
 
 .mascot img {
     display: block;
@@ -233,8 +294,6 @@ body {
 }
 
 
-/* rê chuột */
-
 .mascot:hover img {
     transform: scale(1.06);
 
@@ -245,8 +304,6 @@ body {
         );
 }
 
-
-/* ảnh bay nhẹ */
 
 @keyframes mascotFloat {
 
@@ -266,7 +323,7 @@ body {
 
 
 /* ========================================
-   WELCOME
+   OPENING TEXT
 ======================================== */
 
 .welcome {
@@ -286,10 +343,6 @@ body {
 }
 
 
-/* ========================================
-   PHÚC NGUYÊN
-======================================== */
-
 h1 {
     position: relative;
 
@@ -297,10 +350,7 @@ h1 {
 
     margin-top: 8px;
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    font-family: Georgia, "Times New Roman", serif;
 
     font-size: 46px;
 
@@ -321,10 +371,6 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 
-
-/* ========================================
-   CLICK TO ENTER
-======================================== */
 
 .click {
     position: relative;
@@ -364,15 +410,11 @@ h1 {
    TRANG CHÍNH
 ======================================== */
 
-/*
-   QUAN TRỌNG:
-   Ban đầu trang chính bị ẩn.
-   Khi bấm vào ảnh, JavaScript
-   sẽ cho nó hiện ra.
-*/
-
 .main-page {
+    position: relative;
+
     width: 100%;
+
     min-height: 100vh;
 
     background: #c9eaff;
@@ -381,39 +423,737 @@ h1 {
 
     display: none;
 
-    align-items: center;
-    justify-content: center;
-
     flex-direction: column;
 
-    opacity: 0;
-
-    transition: opacity 0.8s ease;
-
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 
-.main-page h2 {
+/* ========================================
+   HEADER
+======================================== */
+
+.main-header {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 28px 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    z-index: 50;
+}
+
+
+.logo {
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size: 40px;
+    font-size: 18px;
 
-    letter-spacing: 6px;
+    letter-spacing: 3px;
 }
 
 
-.main-page p {
-    margin-top: 12px;
+.menu-button {
+    width: 52px;
+    height: 52px;
+
+    border: 1px solid rgba(24,50,74,0.35);
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.25);
+
+    color: #18324a;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: all 0.3s ease;
+}
+
+
+.menu-button:hover {
+
+    background: rgba(255,255,255,0.7);
+
+    transform: scale(1.08);
+}
+
+
+/* ========================================
+   HOME
+======================================== */
+
+.home-content {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+}
+
+
+.home-small {
+
+    font-size: 11px;
+
+    letter-spacing: 6px;
+
+    opacity: 0.6;
+
+    margin-bottom: 15px;
+}
+
+
+.home-content h2 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(45px, 8vw, 90px);
+
+    font-weight: 500;
+
+    letter-spacing: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #18324a,
+            #477da5,
+            #18324a
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.home-description {
+
+    margin-top: 20px;
 
     font-size: 13px;
 
     letter-spacing: 3px;
 
-    opacity: 0.7;
+    opacity: 0.6;
+}
+
+
+/* ========================================
+   MENU
+======================================== */
+
+.menu-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100vh;
+
+    background: rgba(201,234,255,0.97);
+
+    backdrop-filter: blur(15px);
+
+    z-index: 100;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    transition: opacity 0.4s ease;
+}
+
+
+.menu-container {
+
+    width: min(700px, 90%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: relative;
+}
+
+
+.menu-close {
+
+    position: absolute;
+
+    top: -70px;
+
+    right: 0;
+
+    width: 48px;
+
+    height: 48px;
+
+    border: 1px solid rgba(24,50,74,0.35);
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.25);
+
+    color: #18324a;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+.menu-close:hover {
+
+    transform: rotate(90deg);
+
+    background: rgba(255,255,255,0.7);
+}
+
+
+.menu-title {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 18px;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 45px;
+
+    text-align: center;
+
+    opacity: 0.65;
+}
+
+
+.menu-item {
+
+    width: 100%;
+
+    padding: 25px 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+    border: none;
+
+    border-bottom: 1px solid rgba(24,50,74,0.18);
+
+    background: transparent;
+
+    color: #18324a;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: all 0.3s ease;
+}
+
+
+.menu-item:first-of-type {
+
+    border-top: 1px solid rgba(24,50,74,0.18);
+}
+
+
+.menu-item span {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 14px;
+
+    opacity: 0.5;
+
+    min-width: 30px;
+}
+
+
+.menu-item strong {
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+}
+
+
+.menu-item:hover {
+
+    padding-left: 25px;
+
+    background: rgba(255,255,255,0.25);
+}
+
+
+/* ========================================
+   TRANG CON
+======================================== */
+
+.content-section {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100vh;
+
+    background: #c9eaff;
+
+    z-index: 80;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    overflow-y: auto;
+
+    padding: 110px 8% 80px;
+}
+
+
+.back-button {
+
+    position: absolute;
+
+    top: 30px;
+
+    left: 45px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #18324a;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    opacity: 0.65;
+
+    transition: all 0.3s ease;
+}
+
+
+.back-button:hover {
+
+    opacity: 1;
+
+    transform: translateX(-5px);
+}
+
+
+.section-number {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 14px;
+
+    letter-spacing: 4px;
+
+    opacity: 0.5;
+
+    margin-bottom: 15px;
+}
+
+
+.content-section h2 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(30px, 5vw, 60px);
+
+    font-weight: 500;
+
+    letter-spacing: 5px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            #18324a,
+            #477da5,
+            #18324a
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.section-line {
+
+    width: 80px;
+
+    height: 1px;
+
+    background: #18324a;
+
+    opacity: 0.3;
+
+    margin: 25px 0 45px;
+}
+
+
+/* ========================================
+   THÔNG TIN CÁ NHÂN
+======================================== */
+
+.content-section h3 {
+
+    width: min(900px, 100%);
+
+    margin-top: 30px;
+
+    margin-bottom: 15px;
+
+    font-size: 14px;
+
+    letter-spacing: 4px;
+
+    font-weight: 500;
+}
+
+
+.info-card {
+
+    width: min(900px, 100%);
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1px;
+
+    background: rgba(24,50,74,0.15);
+
+    border: 1px solid rgba(24,50,74,0.15);
+
+    margin-bottom: 30px;
+}
+
+
+.info-card p {
+
+    padding: 25px;
+
+    background: rgba(255,255,255,0.22);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    font-size: 14px;
+}
+
+
+.info-card span {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.5;
+}
+
+
+/* ========================================
+   IMAGE PLACEHOLDER
+======================================== */
+
+.image-placeholder {
+
+    width: min(900px, 100%);
+
+    min-height: 280px;
+
+    border: 1px dashed rgba(24,50,74,0.3);
+
+    background: rgba(255,255,255,0.18);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 30px;
+
+    text-align: center;
+}
+
+
+.image-placeholder div {
+
+    font-size: 45px;
+
+    margin-bottom: 15px;
+
+    animation: starTwinkle 1.5s infinite alternate;
+}
+
+
+.image-placeholder p {
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+}
+
+
+.image-placeholder small {
+
+    margin-top: 8px;
+
+    opacity: 0.5;
+}
+
+
+/* ========================================
+   PROJECTS
+======================================== */
+
+.project-grid {
+
+    width: min(1000px, 100%);
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+.project-card {
+
+    background: rgba(255,255,255,0.22);
+
+    border: 1px solid rgba(24,50,74,0.15);
+
+    padding: 15px;
+
+    transition: transform 0.3s ease;
+}
+
+
+.project-card:hover {
+
+    transform: translateY(-8px);
+}
+
+
+.project-image {
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(255,255,255,0.25);
+
+    font-size: 35px;
+}
+
+
+.project-card h3 {
+
+    margin-top: 18px;
+
+    margin-bottom: 8px;
+}
+
+
+.project-card p {
+
+    font-size: 11px;
+
+    opacity: 0.6;
+}
+
+
+/* ========================================
+   THU CHI
+======================================== */
+
+.finance-project {
+
+    width: min(1100px, 100%);
+}
+
+
+.finance-summary {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+
+.finance-summary div {
+
+    padding: 25px;
+
+    background: rgba(255,255,255,0.25);
+
+    border: 1px solid rgba(24,50,74,0.15);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.finance-summary span {
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.6;
+}
+
+
+.finance-summary strong {
+
+    font-size: 22px;
+
+    font-weight: 500;
+}
+
+
+/* ========================================
+   BẢNG THU CHI
+======================================== */
+
+.table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: rgba(255,255,255,0.18);
+
+    border: 1px solid rgba(24,50,74,0.15);
+}
+
+
+table {
+
+    width: 100%;
+
+    min-width: 800px;
+
+    border-collapse: collapse;
+
+    font-size: 11px;
+}
+
+
+th,
+td {
+
+    padding: 15px;
+
+    text-align: left;
+
+    border-bottom: 1px solid rgba(24,50,74,0.12);
+}
+
+
+th {
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    font-weight: 500;
+
+    background: rgba(255,255,255,0.25);
 }
 
 
@@ -424,28 +1164,136 @@ h1 {
 @media (max-width: 600px) {
 
     .mascot {
+
         width: 280px;
+
         height: 280px;
     }
 
+
     .mascot::before {
+
         width: 240px;
+
         height: 240px;
     }
 
+
     h1 {
+
         font-size: 32px;
+
         letter-spacing: 5px;
     }
 
+
     .welcome {
+
         font-size: 9px;
+
         letter-spacing: 4px;
     }
 
+
     .click {
+
         font-size: 8px;
+
         letter-spacing: 3px;
+    }
+
+
+    .main-header {
+
+        padding: 20px;
+    }
+
+
+    .logo {
+
+        font-size: 14px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .menu-button {
+
+        width: 45px;
+
+        height: 45px;
+
+        font-size: 19px;
+    }
+
+
+    .home-content h2 {
+
+        font-size: 42px;
+
+        letter-spacing: 5px;
+    }
+
+
+    .home-description {
+
+        font-size: 10px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .menu-container {
+
+        width: 85%;
+    }
+
+
+    .menu-item {
+
+        gap: 20px;
+
+        padding: 22px 5px;
+    }
+
+
+    .menu-item strong {
+
+        font-size: 13px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .menu-close {
+
+        top: -60px;
+    }
+
+
+    .back-button {
+
+        left: 20px;
+
+        top: 25px;
+    }
+
+
+    .info-card {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .project-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .finance-summary {
+
+        grid-template-columns: 1fr;
     }
 
 }
