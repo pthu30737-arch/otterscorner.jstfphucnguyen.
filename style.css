@@ -8,16 +8,23 @@
     box-sizing: border-box;
 }
 
+
 html,
 body {
     width: 100%;
     min-height: 100%;
 }
 
+
 body {
     background: #c9eaff;
     color: #18324a;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     overflow: hidden;
 }
 
@@ -27,15 +34,18 @@ body {
 ======================================== */
 
 body::before {
-    content: "✦    ✧       ·      ✦        ·
-    
-       ✧       ✦       ·       ✧
-       
-    ·       ✦       ✧        ·       ✦
-    
-       ✦       ·       ✧       ·
-       
-    ✧       ·       ✦       ✧       ·";
+
+    content:
+        "✦    ✧       ·      ✦        ·
+         
+         ✧       ✦       ·       ✧
+         
+      ·       ✦       ✧        ·       ✦
+      
+         ✦       ·       ✧       ·
+         
+      ✧       ·       ✦       ✧       ·";
+
 
     position: fixed;
 
@@ -47,7 +57,7 @@ body::before {
 
     white-space: pre;
 
-    color: rgba(255,255,255,0.85);
+    color: rgba(255,255,255,0.9);
 
     font-size: 18px;
 
@@ -58,9 +68,13 @@ body::before {
     text-shadow:
         0 0 5px white,
         0 0 12px white,
-        0 0 20px rgba(255,255,255,0.8);
+        0 0 20px white;
 
-    animation: websiteStars 3s infinite alternate;
+    animation:
+        websiteStars
+        3s
+        infinite
+        alternate;
 
     opacity: 0.45;
 }
@@ -69,7 +83,7 @@ body::before {
 @keyframes websiteStars {
 
     0% {
-        opacity: 0.2;
+        opacity: 0.15;
     }
 
     50% {
@@ -88,6 +102,7 @@ body::before {
 ======================================== */
 
 .opening {
+
     position: fixed;
 
     inset: 0;
@@ -111,7 +126,8 @@ body::before {
 
     opacity: 1;
 
-    transition: opacity 0.8s ease;
+    transition:
+        opacity 0.8s ease;
 }
 
 
@@ -120,6 +136,7 @@ body::before {
 ======================================== */
 
 .stars {
+
     position: absolute;
 
     inset: 0;
@@ -131,6 +148,7 @@ body::before {
 
 
 .stars::before {
+
     content:
         "✦      ✧          ·        ✦       ·
 
@@ -143,6 +161,7 @@ body::before {
          ·       ✧       ✦       ·       ✧
 
          ✦          ·       ✧       ·       ✦";
+
 
     position: absolute;
 
@@ -163,11 +182,16 @@ body::before {
         0 0 12px white,
         0 0 22px rgba(255,255,255,0.9);
 
-    animation: starsBlink 2.5s infinite alternate;
+    animation:
+        starsBlink
+        2.5s
+        infinite
+        alternate;
 }
 
 
 .stars::after {
+
     content: "✦";
 
     position: absolute;
@@ -185,7 +209,11 @@ body::before {
         0 0 15px white,
         0 0 30px white;
 
-    animation: starTwinkle 1.4s infinite alternate;
+    animation:
+        starTwinkle
+        1.4s
+        infinite
+        alternate;
 }
 
 
@@ -231,6 +259,7 @@ body::before {
 ======================================== */
 
 .mascot {
+
     position: relative;
 
     z-index: 10;
@@ -249,6 +278,7 @@ body::before {
 
 
 .mascot::before {
+
     content: "";
 
     position: absolute;
@@ -258,7 +288,8 @@ body::before {
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,0.35);
+    background:
+        rgba(255,255,255,0.35);
 
     filter: blur(30px);
 
@@ -267,6 +298,7 @@ body::before {
 
 
 .mascot img {
+
     display: block;
 
     width: 100%;
@@ -286,7 +318,11 @@ body::before {
             rgba(24,50,74,0.18)
         );
 
-    animation: mascotFloat 3s ease-in-out infinite;
+    animation:
+        mascotFloat
+        3s
+        ease-in-out
+        infinite;
 
     transition:
         transform 0.35s ease,
@@ -295,6 +331,7 @@ body::before {
 
 
 .mascot:hover img {
+
     transform: scale(1.06);
 
     filter:
@@ -327,6 +364,7 @@ body::before {
 ======================================== */
 
 .welcome {
+
     position: relative;
 
     z-index: 10;
@@ -344,13 +382,17 @@ body::before {
 
 
 h1 {
+
     position: relative;
 
     z-index: 10;
 
     margin-top: 8px;
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     font-size: 46px;
 
@@ -373,6 +415,7 @@ h1 {
 
 
 .click {
+
     position: relative;
 
     z-index: 10;
@@ -385,7 +428,10 @@ h1 {
 
     letter-spacing: 4px;
 
-    animation: clickBlink 2s infinite;
+    animation:
+        clickBlink
+        2s
+        infinite;
 }
 
 
@@ -411,6 +457,7 @@ h1 {
 ======================================== */
 
 .main-page {
+
     position: relative;
 
     width: 100%;
@@ -434,6 +481,7 @@ h1 {
 ======================================== */
 
 .main-header {
+
     position: absolute;
 
     top: 0;
@@ -454,6 +502,7 @@ h1 {
 
 
 .logo {
+
     font-family:
         Georgia,
         "Times New Roman",
@@ -466,14 +515,17 @@ h1 {
 
 
 .menu-button {
+
     width: 52px;
     height: 52px;
 
-    border: 1px solid rgba(24,50,74,0.35);
+    border: 1px solid
+        rgba(24,50,74,0.35);
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,0.25);
+    background:
+        rgba(255,255,255,0.25);
 
     color: #18324a;
 
@@ -493,7 +545,8 @@ h1 {
 
 .menu-button:hover {
 
-    background: rgba(255,255,255,0.7);
+    background:
+        rgba(255,255,255,0.7);
 
     transform: scale(1.08);
 }
@@ -542,7 +595,12 @@ h1 {
         "Times New Roman",
         serif;
 
-    font-size: clamp(45px, 8vw, 90px);
+    font-size:
+        clamp(
+            45px,
+            8vw,
+            90px
+        );
 
     font-weight: 500;
 
@@ -585,10 +643,10 @@ h1 {
     inset: 0;
 
     width: 100%;
-
     height: 100vh;
 
-    background: rgba(201,234,255,0.97);
+    background:
+        rgba(201,234,255,0.97);
 
     backdrop-filter: blur(15px);
 
@@ -602,13 +660,18 @@ h1 {
 
     opacity: 0;
 
-    transition: opacity 0.4s ease;
+    transition:
+        opacity 0.4s ease;
 }
 
 
 .menu-container {
 
-    width: min(700px, 90%);
+    width:
+        min(
+            700px,
+            90%
+        );
 
     display: flex;
 
@@ -627,14 +690,16 @@ h1 {
     right: 0;
 
     width: 48px;
-
     height: 48px;
 
-    border: 1px solid rgba(24,50,74,0.35);
+    border:
+        1px solid
+        rgba(24,50,74,0.35);
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,0.25);
+    background:
+        rgba(255,255,255,0.25);
 
     color: #18324a;
 
@@ -650,7 +715,8 @@ h1 {
 
     transform: rotate(90deg);
 
-    background: rgba(255,255,255,0.7);
+    background:
+        rgba(255,255,255,0.7);
 }
 
 
@@ -687,7 +753,9 @@ h1 {
 
     border: none;
 
-    border-bottom: 1px solid rgba(24,50,74,0.18);
+    border-bottom:
+        1px solid
+        rgba(24,50,74,0.18);
 
     background: transparent;
 
@@ -703,7 +771,9 @@ h1 {
 
 .menu-item:first-of-type {
 
-    border-top: 1px solid rgba(24,50,74,0.18);
+    border-top:
+        1px solid
+        rgba(24,50,74,0.18);
 }
 
 
@@ -736,7 +806,8 @@ h1 {
 
     padding-left: 25px;
 
-    background: rgba(255,255,255,0.25);
+    background:
+        rgba(255,255,255,0.25);
 }
 
 
@@ -751,7 +822,6 @@ h1 {
     inset: 0;
 
     width: 100%;
-
     height: 100vh;
 
     background: #c9eaff;
@@ -766,7 +836,10 @@ h1 {
 
     overflow-y: auto;
 
-    padding: 110px 8% 80px;
+    padding:
+        110px
+        8%
+        80px;
 }
 
 
@@ -828,7 +901,12 @@ h1 {
         "Times New Roman",
         serif;
 
-    font-size: clamp(30px, 5vw, 60px);
+    font-size:
+        clamp(
+            30px,
+            5vw,
+            60px
+        );
 
     font-weight: 500;
 
@@ -860,17 +938,24 @@ h1 {
 
     opacity: 0.3;
 
-    margin: 25px 0 45px;
+    margin:
+        25px
+        0
+        45px;
 }
 
 
 /* ========================================
-   THÔNG TIN CÁ NHÂN
+   THÔNG TIN
 ======================================== */
 
 .content-section h3 {
 
-    width: min(900px, 100%);
+    width:
+        min(
+            1000px,
+            100%
+        );
 
     margin-top: 30px;
 
@@ -886,27 +971,39 @@ h1 {
 
 .info-card {
 
-    width: min(900px, 100%);
+    width:
+        min(
+            1000px,
+            100%
+        );
 
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
 
     gap: 1px;
 
-    background: rgba(24,50,74,0.15);
+    background:
+        rgba(24,50,74,0.15);
 
-    border: 1px solid rgba(24,50,74,0.15);
+    border:
+        1px solid
+        rgba(24,50,74,0.15);
 
     margin-bottom: 30px;
 }
 
 
-.info-card p {
+.info-card div {
 
     padding: 25px;
 
-    background: rgba(255,255,255,0.22);
+    background:
+        rgba(255,255,255,0.22);
 
     display: flex;
 
@@ -928,19 +1025,123 @@ h1 {
 }
 
 
+.info-card strong {
+
+    font-weight: 500;
+}
+
+
 /* ========================================
-   IMAGE PLACEHOLDER
+   TIMELINE
+======================================== */
+
+.timeline {
+
+    width:
+        min(
+            1000px,
+            100%
+        );
+
+    border-left:
+        1px solid
+        rgba(24,50,74,0.2);
+
+    padding-left: 30px;
+
+    margin-bottom: 30px;
+}
+
+
+.timeline-item {
+
+    position: relative;
+
+    display: flex;
+
+    gap: 20px;
+
+    padding: 20px 0;
+}
+
+
+.timeline-dot {
+
+    position: absolute;
+
+    left: -42px;
+
+    width: 23px;
+    height: 23px;
+
+    border-radius: 50%;
+
+    background: #c9eaff;
+
+    border:
+        1px solid
+        rgba(24,50,74,0.3);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 10px;
+}
+
+
+.timeline-item small {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.5;
+}
+
+
+.timeline-item h4 {
+
+    margin-top: 7px;
+
+    font-size: 17px;
+
+    font-weight: 500;
+}
+
+
+.timeline-item p {
+
+    margin-top: 8px;
+
+    font-size: 12px;
+
+    opacity: 0.6;
+}
+
+
+/* ========================================
+   IMAGE
 ======================================== */
 
 .image-placeholder {
 
-    width: min(900px, 100%);
+    width:
+        min(
+            1000px,
+            100%
+        );
 
     min-height: 280px;
 
-    border: 1px dashed rgba(24,50,74,0.3);
+    border:
+        1px dashed
+        rgba(24,50,74,0.3);
 
-    background: rgba(255,255,255,0.18);
+    background:
+        rgba(255,255,255,0.18);
 
     display: flex;
 
@@ -962,7 +1163,11 @@ h1 {
 
     margin-bottom: 15px;
 
-    animation: starTwinkle 1.5s infinite alternate;
+    animation:
+        starTwinkle
+        1.5s
+        infinite
+        alternate;
 }
 
 
@@ -988,11 +1193,19 @@ h1 {
 
 .project-grid {
 
-    width: min(1000px, 100%);
+    width:
+        min(
+            1100px,
+            100%
+        );
 
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
 
     gap: 25px;
 }
@@ -1000,19 +1213,26 @@ h1 {
 
 .project-card {
 
-    background: rgba(255,255,255,0.22);
+    background:
+        rgba(255,255,255,0.22);
 
-    border: 1px solid rgba(24,50,74,0.15);
+    border:
+        1px solid
+        rgba(24,50,74,0.15);
 
     padding: 15px;
 
-    transition: transform 0.3s ease;
+    transition:
+        transform 0.3s ease;
+
+    cursor: pointer;
 }
 
 
 .project-card:hover {
 
-    transform: translateY(-8px);
+    transform:
+        translateY(-8px);
 }
 
 
@@ -1028,7 +1248,8 @@ h1 {
 
     justify-content: center;
 
-    background: rgba(255,255,255,0.25);
+    background:
+        rgba(255,255,255,0.25);
 
     font-size: 35px;
 }
@@ -1039,6 +1260,10 @@ h1 {
     margin-top: 18px;
 
     margin-bottom: 8px;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
 }
 
 
@@ -1051,20 +1276,164 @@ h1 {
 
 
 /* ========================================
-   THU CHI
+   THU CHI - PROJECT LIST
 ======================================== */
 
-.finance-project {
+.finance-project-list {
 
-    width: min(1100px, 100%);
+    width:
+        min(
+            1000px,
+            100%
+        );
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
+
+    gap: 20px;
 }
 
+
+.finance-project-card {
+
+    padding: 30px;
+
+    background:
+        rgba(255,255,255,0.25);
+
+    border:
+        1px solid
+        rgba(24,50,74,0.15);
+
+    cursor: pointer;
+
+    transition:
+        all 0.3s ease;
+}
+
+
+.finance-project-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    background:
+        rgba(255,255,255,0.45);
+}
+
+
+.finance-project-number {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.5;
+
+    margin-bottom: 12px;
+}
+
+
+.finance-project-card h3 {
+
+    margin: 0;
+
+    font-size: 17px;
+
+    letter-spacing: 3px;
+}
+
+
+.finance-project-card p {
+
+    margin-top: 12px;
+
+    font-size: 11px;
+
+    opacity: 0.55;
+}
+
+
+/* ========================================
+   THU CHI - DETAIL
+======================================== */
+
+.finance-detail {
+
+    width:
+        min(
+            1100px,
+            100%
+        );
+
+    display: none;
+}
+
+
+.finance-back {
+
+    border: none;
+
+    background: transparent;
+
+    color: #18324a;
+
+    cursor: pointer;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 30px;
+
+    opacity: 0.6;
+}
+
+
+.finance-back:hover {
+
+    opacity: 1;
+}
+
+
+.finance-title {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 32px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 30px;
+}
+
+
+/* ========================================
+   SUMMARY
+======================================== */
 
 .finance-summary {
 
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
 
     gap: 15px;
 
@@ -1076,9 +1445,12 @@ h1 {
 
     padding: 25px;
 
-    background: rgba(255,255,255,0.25);
+    background:
+        rgba(255,255,255,0.25);
 
-    border: 1px solid rgba(24,50,74,0.15);
+    border:
+        1px solid
+        rgba(24,50,74,0.15);
 
     display: flex;
 
@@ -1090,43 +1462,46 @@ h1 {
 
 .finance-summary span {
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 3px;
 
-    opacity: 0.6;
+    opacity: 0.55;
 }
 
 
 .finance-summary strong {
 
-    font-size: 22px;
+    font-size: 21px;
 
     font-weight: 500;
 }
 
 
 /* ========================================
-   BẢNG THU CHI
+   TABLE
 ======================================== */
 
-.table-wrapper {
+.finance-table-wrapper {
 
     width: 100%;
 
     overflow-x: auto;
 
-    background: rgba(255,255,255,0.18);
+    background:
+        rgba(255,255,255,0.18);
 
-    border: 1px solid rgba(24,50,74,0.15);
+    border:
+        1px solid
+        rgba(24,50,74,0.15);
 }
 
 
-table {
+.finance-table {
 
     width: 100%;
 
-    min-width: 800px;
+    min-width: 950px;
 
     border-collapse: collapse;
 
@@ -1134,26 +1509,54 @@ table {
 }
 
 
-th,
-td {
+.finance-table th,
+.finance-table td {
 
-    padding: 15px;
+    padding: 14px;
+
+    border-bottom:
+        1px solid
+        rgba(24,50,74,0.12);
 
     text-align: left;
-
-    border-bottom: 1px solid rgba(24,50,74,0.12);
 }
 
 
-th {
+.finance-table th {
 
-    font-size: 9px;
+    background:
+        rgba(255,255,255,0.3);
 
-    letter-spacing: 2px;
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
 
     font-weight: 500;
+}
 
-    background: rgba(255,255,255,0.25);
+
+.finance-table td {
+
+    background:
+        rgba(255,255,255,0.08);
+}
+
+
+.payment-type {
+
+    display: inline-block;
+
+    padding: 5px 8px;
+
+    border:
+        1px solid
+        rgba(24,50,74,0.2);
+
+    border-radius: 20px;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
 }
 
 
@@ -1291,9 +1694,21 @@ th {
     }
 
 
+    .finance-project-list {
+
+        grid-template-columns: 1fr;
+    }
+
+
     .finance-summary {
 
         grid-template-columns: 1fr;
+    }
+
+
+    .finance-title {
+
+        font-size: 24px;
     }
 
 }
