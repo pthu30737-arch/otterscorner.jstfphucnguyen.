@@ -11,7 +11,7 @@
 html,
 body {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
 }
 
 body {
@@ -43,11 +43,15 @@ body {
     z-index: 100;
 
     overflow: hidden;
+
+    opacity: 1;
+
+    transition: opacity 0.8s ease;
 }
 
 
 /* ========================================
-   SAO LẤP LÁNH TOÀN MÀN HÌNH
+   SAO LẤP LÁNH
 ======================================== */
 
 .stars {
@@ -60,7 +64,7 @@ body {
 }
 
 
-/* tạo nhiều sao */
+/* nhiều sao */
 
 .stars::before {
     content:
@@ -81,7 +85,7 @@ body {
 
     white-space: pre;
 
-    color: white;
+    color: #ffffff;
 
     font-size: 22px;
 
@@ -90,8 +94,8 @@ body {
     letter-spacing: 18px;
 
     text-shadow:
-        0 0 5px white,
-        0 0 12px white,
+        0 0 5px #ffffff,
+        0 0 12px #ffffff,
         0 0 22px rgba(255,255,255,0.9);
 
     animation: starsBlink 2.5s infinite alternate;
@@ -108,14 +112,14 @@ body {
     top: 18%;
     left: 18%;
 
-    color: white;
+    color: #ffffff;
 
     font-size: 32px;
 
     text-shadow:
-        0 0 5px white,
-        0 0 15px white,
-        0 0 30px white;
+        0 0 5px #ffffff,
+        0 0 15px #ffffff,
+        0 0 30px #ffffff;
 
     animation: starTwinkle 1.4s infinite alternate;
 }
@@ -163,7 +167,6 @@ body {
 ======================================== */
 
 .mascot {
-
     position: relative;
 
     z-index: 10;
@@ -177,14 +180,12 @@ body {
     justify-content: center;
 
     cursor: pointer;
-
 }
 
 
 /* ánh sáng phía sau ảnh */
 
 .mascot::before {
-
     content: "";
 
     position: absolute;
@@ -199,16 +200,12 @@ body {
     filter: blur(30px);
 
     z-index: -1;
-
 }
 
 
-/* ========================================
-   ẢNH 1.PNG THẬT SỰ
-======================================== */
+/* ảnh 1.png */
 
 .mascot img {
-
     display: block;
 
     width: 100%;
@@ -233,14 +230,12 @@ body {
     transition:
         transform 0.35s ease,
         filter 0.35s ease;
-
 }
 
 
-/* rê chuột vào ảnh */
+/* rê chuột */
 
 .mascot:hover img {
-
     transform: scale(1.06);
 
     filter:
@@ -248,7 +243,6 @@ body {
             0 20px 35px
             rgba(24,50,74,0.25)
         );
-
 }
 
 
@@ -276,7 +270,6 @@ body {
 ======================================== */
 
 .welcome {
-
     position: relative;
 
     z-index: 10;
@@ -290,7 +283,6 @@ body {
     letter-spacing: 5px;
 
     opacity: 0.65;
-
 }
 
 
@@ -299,14 +291,11 @@ body {
 ======================================== */
 
 h1 {
-
     position: relative;
 
     z-index: 10;
 
     margin-top: 8px;
-
-    color: #18324a;
 
     font-family:
         Georgia,
@@ -330,16 +319,14 @@ h1 {
     -webkit-background-clip: text;
 
     -webkit-text-fill-color: transparent;
-
 }
 
 
 /* ========================================
-   CLICK
+   CLICK TO ENTER
 ======================================== */
 
 .click {
-
     position: relative;
 
     z-index: 10;
@@ -353,7 +340,6 @@ h1 {
     letter-spacing: 4px;
 
     animation: clickBlink 2s infinite;
-
 }
 
 
@@ -378,29 +364,37 @@ h1 {
    TRANG CHÍNH
 ======================================== */
 
+/*
+   QUAN TRỌNG:
+   Ban đầu trang chính bị ẩn.
+   Khi bấm vào ảnh, JavaScript
+   sẽ cho nó hiện ra.
+*/
+
 .main-page {
-
     width: 100%;
-
     min-height: 100vh;
 
     background: #c9eaff;
 
     color: #18324a;
 
-    display: flex;
+    display: none;
 
     align-items: center;
-
     justify-content: center;
 
     flex-direction: column;
 
+    opacity: 0;
+
+    transition: opacity 0.8s ease;
+
+    overflow-y: auto;
 }
 
 
 .main-page h2 {
-
     font-family:
         Georgia,
         "Times New Roman",
@@ -409,12 +403,10 @@ h1 {
     font-size: 40px;
 
     letter-spacing: 6px;
-
 }
 
 
 .main-page p {
-
     margin-top: 12px;
 
     font-size: 13px;
@@ -422,56 +414,38 @@ h1 {
     letter-spacing: 3px;
 
     opacity: 0.7;
-
 }
 
 
 /* ========================================
-   ĐIỆN THOẠI
+   MOBILE
 ======================================== */
 
 @media (max-width: 600px) {
 
     .mascot {
-
         width: 280px;
         height: 280px;
-
     }
-
 
     .mascot::before {
-
         width: 240px;
         height: 240px;
-
     }
-
 
     h1 {
-
         font-size: 32px;
-
         letter-spacing: 5px;
-
     }
-
 
     .welcome {
-
         font-size: 9px;
-
         letter-spacing: 4px;
-
     }
 
-
     .click {
-
         font-size: 8px;
-
         letter-spacing: 3px;
-
     }
 
 }
