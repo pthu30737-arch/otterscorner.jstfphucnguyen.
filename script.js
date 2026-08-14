@@ -1,46 +1,63 @@
-/* =====================================================
+/* ==================================================
    PHÚC NGUYÊN OFFICIAL PROJECT
    JAVASCRIPT
-===================================================== */
+================================================== */
 
 
-/* =====================================================
-   LẤY CÁC ELEMENT
-===================================================== */
+/* ==================================================
+   ELEMENTS
+================================================== */
 
-const opening = document.getElementById("opening");
+const opening =
+    document.getElementById("opening");
 
-const website = document.getElementById("website");
+const enterButton =
+    document.getElementById("enterButton");
 
-const enterButton = document.getElementById("enterButton");
+const website =
+    document.getElementById("website");
 
-const musicButton = document.getElementById("musicButton");
+const bgMusic =
+    document.getElementById("bgMusic");
 
-const backgroundMusic =
-    document.getElementById("backgroundMusic");
+const musicButton =
+    document.getElementById("musicButton");
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const menuClose =
+    document.getElementById("menuClose");
+
+const sideMenu =
+    document.getElementById("sideMenu");
+
+const modal =
+    document.getElementById("projectModal");
+
+const projectDetail =
+    document.getElementById("projectDetail");
 
 
-/* =====================================================
-   NHẠC NỀN
-===================================================== */
+
+/* ==================================================
+   MUSIC
+================================================== */
 
 let musicPlaying = false;
 
 
-/* =====================================================
-   CLICK MASCOT
-===================================================== */
+/*
+   Khi người dùng bấm mascot,
+   website sẽ thử bật nhạc.
+*/
 
-enterButton.addEventListener("click", function () {
+function startMusic() {
 
-    /*
-        Vì đây là hành động của người dùng,
-        trình duyệt cho phép website phát nhạc.
-    */
+    bgMusic.volume = 0.35;
 
-    backgroundMusic.volume = 0.35;
-
-    backgroundMusic.play()
+    bgMusic
+        .play()
         .then(() => {
 
             musicPlaying = true;
@@ -51,456 +68,550 @@ enterButton.addEventListener("click", function () {
         })
         .catch(() => {
 
-            console.log(
-                "Không thể tự động phát nhạc."
-            );
+            musicPlaying = false;
+
+            musicButton.textContent =
+                "♫ MUSIC OFF";
 
         });
 
+}
 
-    /*
-        Ẩn opening
-    */
 
-    opening.classList.add("hide");
+musicButton.addEventListener(
+    "click",
+    function () {
 
+        if (musicPlaying) {
 
-    /*
-        Hiện website
-    */
+            bgMusic.pause();
 
-    setTimeout(function () {
+            musicPlaying = false;
 
-        website.classList.add("show");
-
-    }, 500);
-
-});
-
-
-/* =====================================================
-   NÚT MUSIC
-===================================================== */
-
-musicButton.addEventListener("click", function () {
-
-    if (musicPlaying) {
-
-        backgroundMusic.pause();
-
-        musicPlaying = false;
-
-        musicButton.textContent =
-            "♪ MUSIC OFF";
-
-    } else {
-
-        backgroundMusic.play();
-
-        musicPlaying = true;
-
-        musicButton.textContent =
-            "♫ MUSIC ON";
-
-    }
-
-});
-
-
-/* =====================================================
-   MENU 01 / 02 / 03
-===================================================== */
-
-const menuItems =
-    document.querySelectorAll(".menu-item");
-
-const pageSections =
-    document.querySelectorAll(".page-section");
-
-
-menuItems.forEach(function (button) {
-
-    button.addEventListener("click", function () {
-
-        const sectionId =
-            button.dataset.section;
-
-
-        /*
-            Bỏ active khỏi tất cả menu
-        */
-
-        menuItems.forEach(function (item) {
-
-            item.classList.remove("active");
-
-        });
-
-
-        /*
-            Active menu đang chọn
-        */
-
-        button.classList.add("active");
-
-
-        /*
-            Ẩn tất cả page
-        */
-
-        pageSections.forEach(function (section) {
-
-            section.classList.remove("active");
-
-        });
-
-
-        /*
-            Hiện page tương ứng
-        */
-
-        const target =
-            document.getElementById(sectionId);
-
-        if (target) {
-
-            target.classList.add("active");
-
-        }
-
-
-        /*
-            Scroll về đầu nội dung
-        */
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    });
-
-});
-
-
-/* =====================================================
-   ACCORDION
-===================================================== */
-
-const accordionButtons =
-    document.querySelectorAll(".accordion-header");
-
-
-accordionButtons.forEach(function (button) {
-
-    button.addEventListener("click", function () {
-
-        const targetId =
-            button.dataset.target;
-
-        const content =
-            document.getElementById(targetId);
-
-
-        if (!content) return;
-
-
-        content.classList.toggle("open");
-
-
-        const plus =
-            button.querySelector("span:last-child");
-
-
-        if (content.classList.contains("open")) {
-
-            plus.textContent = "−";
+            musicButton.textContent =
+                "♫ MUSIC OFF";
 
         } else {
 
-            plus.textContent = "+";
+            bgMusic
+                .play()
+                .then(() => {
+
+                    musicPlaying = true;
+
+                    musicButton.textContent =
+                        "♫ MUSIC ON";
+
+                });
 
         }
 
-    });
-
-});
-
-
-/* =====================================================
-   PROJECT MODAL
-===================================================== */
-
-const projectModal =
-    document.getElementById("projectModal");
-
-const modalClose =
-    document.getElementById("modalClose");
-
-const projectButtons =
-    document.querySelectorAll(".project-detail");
-
-const modalProjects =
-    document.querySelectorAll(".modal-project");
+    }
+);
 
 
-/* =====================================================
-   MỞ PROJECT
-===================================================== */
 
-projectButtons.forEach(function (button) {
+/* ==================================================
+   ENTER WEBSITE
+================================================== */
 
-    button.addEventListener("click", function () {
+enterButton.addEventListener(
+    "click",
+    function () {
 
-        const projectId =
-            button.dataset.project;
+        opening.classList.add("hide");
 
+        website.classList.add("show");
 
-        /*
-            Ẩn tất cả project detail
-        */
+        startMusic();
 
-        modalProjects.forEach(function (project) {
+        setTimeout(
+            function () {
 
-            project.classList.remove("active");
+                opening.style.display =
+                    "none";
 
-        });
+            },
+            900
+        );
 
-
-        /*
-            Hiện project được chọn
-        */
-
-        const selectedProject =
-            document.getElementById(projectId);
+    }
+);
 
 
-        if (selectedProject) {
 
-            selectedProject.classList.add("active");
+/* ==================================================
+   MENU
+================================================== */
 
-        }
+menuToggle.addEventListener(
+    "click",
+    function () {
 
+        sideMenu.classList.add("open");
 
-        /*
-            Hiện modal
-        */
-
-        projectModal.classList.add("show");
-
-
-        document.body.style.overflow =
-            "hidden";
-
-    });
-
-});
+    }
+);
 
 
-/* =====================================================
-   ĐÓNG MODAL
-===================================================== */
+menuClose.addEventListener(
+    "click",
+    function () {
 
-modalClose.addEventListener("click", function () {
+        sideMenu.classList.remove("open");
 
-    projectModal.classList.remove("show");
-
-    document.body.style.overflow =
-        "auto";
-
-});
+    }
+);
 
 
-/* =====================================================
-   CLICK RA NGOÀI MODAL
-===================================================== */
 
-projectModal.addEventListener("click", function (event) {
+/* ==================================================
+   OPEN SECTION
+================================================== */
 
-    if (event.target === projectModal) {
+function openSection(sectionId) {
 
-        projectModal.classList.remove("show");
+    /*
+       Đóng menu
+    */
 
-        document.body.style.overflow =
-            "auto";
+    sideMenu.classList.remove(
+        "open"
+    );
+
+
+    /*
+       Ẩn tất cả page
+    */
+
+    document
+        .querySelectorAll(".page")
+        .forEach(
+            page => {
+
+                page.classList.remove(
+                    "active-page"
+                );
+
+            }
+        );
+
+
+    /*
+       Hiện page được chọn
+    */
+
+    const target =
+        document.getElementById(
+            sectionId
+        );
+
+    if (target) {
+
+        target.classList.add(
+            "active-page"
+        );
 
     }
 
-});
+
+    /*
+       Nếu đang ở Donate thì
+       đóng Donate
+    */
+
+    document
+        .getElementById(
+            "starsPage"
+        )
+        .classList.remove(
+            "show"
+        );
 
 
-/* =====================================================
-   ESC ĐỂ ĐÓNG
-===================================================== */
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
-document.addEventListener("keydown", function (event) {
+}
 
-    if (event.key === "Escape") {
 
-        projectModal.classList.remove("show");
 
-        document.body.style.overflow =
-            "auto";
+/* ==================================================
+   HOME
+================================================== */
+
+function showHome() {
+
+    openSection("home");
+
+}
+
+
+
+/* ==================================================
+   DONATE
+================================================== */
+
+function openDonate() {
+
+    /*
+       Google Form của bạn
+    */
+
+    window.open(
+        "https://forms.gle/D47nMUWBiiyie2gSA",
+        "_blank"
+    );
+
+}
+
+
+
+/* ==================================================
+   ACCORDION
+================================================== */
+
+function toggleAccordion(button) {
+
+    const card =
+        button.parentElement;
+
+    card.classList.toggle(
+        "open"
+    );
+
+
+    const symbol =
+        button.querySelector(
+            "span:last-child"
+        );
+
+
+    if (
+        card.classList.contains(
+            "open"
+        )
+    ) {
+
+        symbol.textContent = "−";
+
+    } else {
+
+        symbol.textContent = "+";
 
     }
 
-});
+}
 
 
-/* =====================================================
-   DỮ LIỆU THU CHI
-===================================================== */
 
-/*
-    Hiện tại 3 project đều sử dụng
-    QUỸ NỘI BỘ nên:
+/* ==================================================
+   PROJECT DATA
+================================================== */
 
-    Tổng thu = 0
-    Tổng chi = 0
-    Còn lại = 0
-
-    Sau này chỉ cần sửa phần DATA
-    bên dưới.
-*/
+const projects = {
 
 
-const financeData = {
+    pj1: {
 
-    project1: {
+        title:
+            "CHEER TO GRADUATION & ROAD TO DEBUT",
 
-        income: 0,
+        date:
+            "18/01/2026 · VIETNAM",
 
-        expenses: []
+        text:
+`💕 Project nhỏ xinh đầu tiên của Otter’s Corner tới Phúc Nguyên yêu dấu 💕
+
+📨 Dear Phúc Nguyên:
+
+“Khi cánh cửa này khép lại cũng là lúc một cánh cửa mới mở ra, chặng đường tại SIA vừa qua Nguyên đã trải qua bằng tất cả nhiệt huyết và chân thành, giờ là lúc bước ra thế giới rộng lớn kia để tiếp tục hành trình theo đuổi đam mê.”
+
+✨ SHOW THE WORLD WHO YOU ARE ✨
+
+🦦 By: Otter’s Corner
+
+💫 Date: 18/01/2026
+
+📍 Location: Vietnam
+
+Otter’s Corner xin được gửi lời cảm ơn tới @le.tresor_pn và @nayngieee_ khi đã cho phép team được sử dụng hình ảnh cho chiếc ads xinh iu này.
+
+Cảm ơn designer iu quý của team @dazii2611 đã vất vả cho deadline gấp rút chúc mừng Phúc Nguyên tốt nghiệp hành trình này.
+
+Các tình iu có bắt gặp chiếc ads nhỏ xinh này thì nhớ tag Otter’s Corner và gửi lời chúc tới Phúc Nguyên nhaaaa.`,
+
+        images: [
+            "PJ1.png"
+        ]
 
     },
 
 
-    project2: {
+    pj2: {
 
-        income: 0,
+        title:
+            "PHƯỚN HER CONCERT FOR UPRIZE PN",
 
-        expenses: []
+        date:
+            "PHÚC KHỞI HƯNG NGUYÊN",
+
+        text:
+`Mở đầu cho hành trình Phúc Khởi Hưng Nguyên với chặng “Phúc Khai”, Otter’s Corner gửi đến HER Concert cụm 10 phướn như một dấu mốc khởi đầu, thay cho lời chúc tốt đẹp và lời hứa đồng hành dài lâu 🫂
+
+Mỗi phướn đều mang theo niềm tin, sự tự hào và ước nguyện - mong Phúc Nguyên luôn tự tin, mạnh mẽ trên mọi chặng đường, không ngừng bứt phá và ngày càng vươn xa 🪽`,
+
+        images: [
+            "PJ2.1.png",
+            "PJ2.2.png"
+        ]
 
     },
 
 
-    project3: {
+    pj3: {
 
-        income: 0,
+        title:
+            "PHOTO FRAME x TEDxTPC2026",
 
-        expenses: []
+        date:
+            "CHẶNG KHỞI",
+
+        text:
+`🎹 Mở đầu chặng Khởi, Otter’s Corner mang đến project đầu tiên: frame check-in tại sự kiện TEDxTPC2026.
+
+🎹 Lấy cảm hứng từ chủ đề Maestro, chúng mình tái hiện một “nhà hát” nơi vị nhạc trưởng tài ba UPRIZE PN dẫn dắt những giai điệu đầy cảm hứng.
+
+🎹 Đừng quên ghé qua frame check-in và lưu lại những khoảnh khắc thật xinh nhéee.`,
+
+        images: [
+            "PJ3.1.png",
+            "PJ3.2.png"
+        ]
 
     }
 
 };
 
 
-/* =====================================================
-   ELEMENT THU CHI
-===================================================== */
 
-const projectSelect =
-    document.getElementById("projectSelect");
+/* ==================================================
+   OPEN PROJECT
+================================================== */
 
-const totalIncome =
-    document.getElementById("totalIncome");
+function openProject(projectId) {
 
-const totalExpense =
-    document.getElementById("totalExpense");
+    const project =
+        projects[projectId];
 
-const remainingMoney =
-    document.getElementById("remainingMoney");
-
-const financeTable =
-    document.getElementById("financeTable");
+    if (!project) return;
 
 
-/* =====================================================
-   FORMAT TIỀN
-===================================================== */
+    let gallery = "";
 
-function formatMoney(number) {
 
-    return new Intl.NumberFormat(
-        "vi-VN"
-    ).format(number) + "đ";
+    project.images.forEach(
+        image => {
+
+            gallery += `
+                <img
+                    src="${image}"
+                    alt="${project.title}"
+                    onerror="this.style.display='none'"
+                >
+            `;
+
+        }
+    );
+
+
+    projectDetail.innerHTML = `
+
+        <h2 class="project-detail-title">
+            ${project.title}
+        </h2>
+
+        <p class="project-detail-date">
+            ${project.date}
+        </p>
+
+        <div class="project-detail-text">
+            ${project.text}
+        </div>
+
+        <div class="project-detail-gallery">
+            ${gallery}
+        </div>
+
+    `;
+
+
+    modal.classList.add(
+        "show"
+    );
+
+
+    document.body.style.overflow =
+        "hidden";
 
 }
 
 
-/* =====================================================
-   HIỂN THỊ THU CHI
-===================================================== */
 
-function renderFinance(projectId) {
+/* ==================================================
+   CLOSE PROJECT
+================================================== */
 
-    const data =
-        financeData[projectId];
+function closeProject() {
 
-
-    if (!data) return;
-
-
-    /*
-        Tính tổng chi
-    */
-
-    let expenseTotal = 0;
+    modal.classList.remove(
+        "show"
+    );
 
 
-    data.expenses.forEach(function (item) {
+    document.body.style.overflow =
+        "";
 
-        expenseTotal +=
-            item.total;
-
-    });
+}
 
 
-    /*
-        Tính còn lại
-    */
 
-    const remaining =
-        data.income - expenseTotal;
+/* ==================================================
+   FINANCE DATA
+================================================== */
 
-
-    /*
-        Hiển thị tổng
-    */
-
-    totalIncome.textContent =
-        formatMoney(data.income);
+const financeData = {
 
 
-    totalExpense.textContent =
-        formatMoney(expenseTotal);
+    pj1: {
+
+        income: 0,
+
+        expenses: 0,
+
+        rows: []
+
+    },
 
 
-    remainingMoney.textContent =
-        formatMoney(remaining);
+    pj2: {
+
+        income: 0,
+
+        expenses: 0,
+
+        rows: []
+
+    },
 
 
-    /*
-        Xóa bảng cũ
-    */
+    pj3: {
 
-    financeTable.innerHTML = "";
+        income: 0,
+
+        expenses: 0,
+
+        rows: []
+
+    },
 
 
-    /*
-        Nếu chưa có giao dịch
-    */
+    pj4: {
 
-    if (data.expenses.length === 0) {
+        income: 0,
 
-        financeTable.innerHTML = `
+        expenses: 0,
+
+        rows: []
+
+    }
+
+};
+
+
+
+/* ==================================================
+   FORMAT MONEY
+================================================== */
+
+function formatMoney(number) {
+
+    return number
+        .toLocaleString("vi-VN")
+        + "đ";
+
+}
+
+
+
+/* ==================================================
+   CHANGE FINANCE PROJECT
+================================================== */
+
+function changeFinanceProject() {
+
+    const select =
+        document.getElementById(
+            "financeProject"
+        );
+
+
+    const project =
+        financeData[
+            select.value
+        ];
+
+
+    if (!project) return;
+
+
+    document.getElementById(
+        "totalIncome"
+    ).textContent =
+        formatMoney(
+            project.income
+        );
+
+
+    document.getElementById(
+        "totalExpense"
+    ).textContent =
+        formatMoney(
+            project.expenses
+        );
+
+
+    document.getElementById(
+        "totalRemaining"
+    ).textContent =
+        formatMoney(
+            project.income -
+            project.expenses
+        );
+
+
+    const table =
+        document.getElementById(
+            "financeTable"
+        );
+
+
+    table.innerHTML = "";
+
+
+    if (
+        project.rows.length === 0
+    ) {
+
+        table.innerHTML = `
 
             <tr>
 
                 <td colspan="7">
 
-                    Chưa có giao dịch.
-                    Project sử dụng quỹ nội bộ: 0đ.
+                    Chưa có giao dịch
 
                 </td>
 
@@ -513,87 +624,95 @@ function renderFinance(projectId) {
     }
 
 
-    /*
-        Hiển thị giao dịch
-    */
+    project.rows.forEach(
+        row => {
 
-    data.expenses.forEach(function (item) {
-
-        const row =
-            document.createElement("tr");
-
-
-        row.innerHTML = `
-
-            <td>
-                ${item.date}
-            </td>
-
-            <td>
-                ${item.type}
-            </td>
-
-            <td>
-                ${item.quantity}
-            </td>
-
-            <td>
-                ${formatMoney(item.price)}
-            </td>
-
-            <td>
-                ${formatMoney(item.total)}
-            </td>
-
-            <td>
-                ${formatMoney(item.deposit)}
-            </td>
-
-            <td>
-
-                ${
-                    item.proof
-                    ?
-                    `<a
-                        href="${item.proof}"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        🔗 Drive
-                    </a>`
-                    :
-                    "—"
-                }
-
-            </td>
-
-        `;
+            const tr =
+                document.createElement(
+                    "tr"
+                );
 
 
-        financeTable.appendChild(row);
+            tr.innerHTML = `
 
-    });
+                <td>
+                    ${row.date}
+                </td>
+
+                <td>
+                    ${row.type}
+                </td>
+
+                <td>
+                    ${row.quantity}
+                </td>
+
+                <td>
+                    ${formatMoney(row.price)}
+                </td>
+
+                <td>
+                    ${formatMoney(row.total)}
+                </td>
+
+                <td>
+                    ${formatMoney(row.deposit)}
+                </td>
+
+                <td>
+                    ${
+                        row.proof
+                        ?
+                        `<a href="${row.proof}"
+                           target="_blank">
+                            🔗
+                        </a>`
+                        :
+                        "—"
+                    }
+                </td>
+
+            `;
+
+
+            table.appendChild(
+                tr
+            );
+
+        }
+    );
 
 }
 
 
-/* =====================================================
-   ĐỔI PROJECT
-===================================================== */
 
-projectSelect.addEventListener("change", function () {
+/* ==================================================
+   INITIAL FINANCE
+================================================== */
 
-    renderFinance(
-        projectSelect.value
-    );
-
-});
+changeFinanceProject();
 
 
-/* =====================================================
-   LOAD THU CHI BAN ĐẦU
-===================================================== */
 
-renderFinance(
-    projectSelect.value
+/* ==================================================
+   ESC KEY
+================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeProject();
+
+            sideMenu.classList.remove(
+                "open"
+            );
+
+        }
+
+    }
 );
